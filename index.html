@@ -4,9 +4,55 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <title>Evreka 359</title>
   </head>
   <body>
-    Welcome to Evreka 359
+    <div class="container">
+      <img src="/favicon/apple-touch-icon.png" />
+      <h1 class="title">Welcome to Evreka359</h1>
+      <button id="sort-button">Optimize Tasks</button>
+      <p>Tip: You should plan your tasks according to their order.</p>
+      <ul id="task-list">
+        <li id="task">Task #03</li>
+        <li id="task">Task #02</li>
+        <li id="task">Task #05</li>
+        <li id="task">Task #04</li>
+        <li id="task">Task #01</li>
+      </ul>
+      <p>EXTRA: Play a parking game.</p>
+      <div>
+        <script src="https://cdn.htmlgames.com/embed.js?game=BigParking&amp;bgcolor=white"></script>
+      </div>
+    </div>
   </body>
+  <script>
+    function sortTasks() {
+      const tasks = Array.from(document.querySelectorAll("li#task"));
+      tasks.sort((a, b) => a.textContent.localeCompare(b.textContent));
+      const taskList = document.querySelector("ul#task-list");
+      tasks.forEach((task) => taskList.appendChild(task));
+    }
+
+    const sortButton = document.querySelector("#sort-button");
+    sortButton.addEventListener("click", sortTasks);
+  </script>
 </html>
